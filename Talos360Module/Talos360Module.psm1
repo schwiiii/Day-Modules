@@ -1,11 +1,15 @@
-# Talos360.psm1
-chcp 65001 > $null
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-$OutputEncoding = [System.Text.Encoding]::UTF8
+# Talos360Module.psm1
 
 # Define repository paths
-$global:RepoTalos = "A:\Mapped\talos"
-$global:RepoTalosATS = "A:\Mapped\talosats"
+$global:RepoPaths = @{
+    Talos        = "A:\Mapped\talos"
+    TalosATS     = "A:\Mapped\talosats"
+    Onboarding   = "A:\Mapped\onboarding"
+    CareersSites = "A:\Mapped\careers"
+}
+
+# Ensure UTF-8 output for proper emoji display
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
 function Invoke-Merge {
     param (
@@ -14,18 +18,18 @@ function Invoke-Merge {
         [string]$TargetBranch
     )
 
-    Write-Host "Processing merge in $RepoPath" -ForegroundColor Cyan
+    Write-Host "📁 Processing merge in $RepoPath" -ForegroundColor Cyan
     Set-Location $RepoPath
 
-    Write-Host "Pulling branch $SourceBranch" -ForegroundColor Cyan
+    Write-Host "🔄 Switching to source branch: $SourceBranch" -ForegroundColor Cyan
     git checkout $SourceBranch
     git pull
 
-    Write-Host "Pulling branch $TargetBranch" -ForegroundColor Cyan
+    Write-Host "🔄 Switching to target branch: $TargetBranch" -ForegroundColor Cyan
     git checkout $TargetBranch
     git pull
 
-    Write-Host "Merging $SourceBranch > $TargetBranch" -ForegroundColor Cyan
+    Write-Host "🔄 Merging: $SourceBranch -> $TargetBranch..." -ForegroundColor Cyan
     $mergeOutput = git merge $SourceBranch 2>&1
 
     if ($LASTEXITCODE -ne 0) {
@@ -40,6 +44,7 @@ function Invoke-Merge {
         git merge --abort
         return
     }
+
     Write-Host "✅ Merge successful: $SourceBranch -> $TargetBranch" -ForegroundColor Green
 
     Write-Host "⏫ Pushing $TargetBranch to remote..." -ForegroundColor Cyan
@@ -52,52 +57,66 @@ function Invoke-Merge {
     }
 }
 
-function Merge-TalosRepo {
+function Invoke-MergePlan {
     param (
-        [string]$SourceBranch,
-        [string]$TargetBranch
+        [string]$Type,
+        [string[]]$Repos
     )
 
-    Invoke-Merge -RepoPath $RepoTalos -SourceBranch $SourceBranch -TargetBranch $TargetBranch
-}
+    foreach ($repo in $Repos) {
+        $path = $RepoPaths[$repo]
+        if (-not $path) {
+            Write-Host "⚠️ Unknown repository: $repo" -ForegroundColor Yellow
+            continue
+        }
 
-function Merge-TalosATSRepo {
-    param (
-        [string]$SourceBranch,
-        [string]$TargetBranch
-    )
-
-    Invoke-Merge -RepoPath $RepoTalosATS -SourceBranch $SourceBranch -TargetBranch $TargetBranch
+        switch ($Type) {
+            "UAT" {
+                Invoke-Merge -RepoPath $path -SourceBranch "$repo-UAT" -TargetBranch "$repo-Hotfix"
+                Invoke-Merge -RepoPath $path -SourceBranch "$repo-UAT" -TargetBranch "$repo-Live"
+            }
+            "Hotfix" {
+                Invoke-Merge -RepoPath $path -SourceBranch "$repo-Hotfix" -TargetBranch "$repo-UAT"
+                Invoke-Merge -RepoPath $path -SourceBranch "$repo-Hotfix" -TargetBranch "$repo-Live"
+            }
+            "JSP" {
+                Invoke-Merge -RepoPath $path -SourceBranch "$repo-JSP" -TargetBranch "$repo-UAT"
+                Invoke-Merge -RepoPath $path -SourceBranch "$repo-JSP" -TargetBranch "$repo-Hotfix"
+            }
+            default {
+                Write-Host "❓ Unknown merge type: $Type" -ForegroundColor Red
+            }
+        }
+    }
 }
 
 function Talos360 {
     param (
-        [switch]$MergeHotfix,
         [switch]$MergeUAT,
-        [switch]$MergeJSP
+        [switch]$MergeHotfix,
+        [switch]$MergeJSP,
+        [switch]$Talos,
+        [switch]$TalosATS,
+        [switch]$Onboarding,
+        [switch]$CareersSites
     )
 
-    if ($MergeHotfix) {
-        # MVC Project
-        Merge-TalosRepo -SourceBranch "Talos-Hotfix" -TargetBranch "Talos-JSP"
-        Merge-TalosRepo -SourceBranch "Talos-Hotfix" -TargetBranch "Talos-UAT"
-        Merge-TalosRepo -SourceBranch "Talos-Hotfix" -TargetBranch "Talos-Live"
-        # APIs Project
-        Merge-TalosATSRepo -SourceBranch "TalosATS-Hotfix" -TargetBranch "TalosATS-UAT"
-        Merge-TalosATSRepo -SourceBranch "TalosATS-Hotfix" -TargetBranch "TalosATS-Live"
-    } elseif ($MergeUAT) {
-        # MVC Project
-        Merge-TalosRepo -SourceBranch "Talos-UAT" -TargetBranch "Talos-JSP"
-        Merge-TalosRepo -SourceBranch "Talos-UAT" -TargetBranch "Talos-Hotfix"
-        Merge-TalosRepo -SourceBranch "Talos-UAT" -TargetBranch "Talos-Live"
-        # APIs Project
-        Merge-TalosATSRepo -SourceBranch "TalosATS-UAT" -TargetBranch "TalosATS-Hotfix"
-        Merge-TalosATSRepo -SourceBranch "TalosATS-UAT" -TargetBranch "TalosATS-Live"
-    } elseif ($MergeJSP) {
-        Merge-TalosRepo -SourceBranch "Talos-JSP" -TargetBranch "Talos-UAT"
-        Merge-TalosRepo -SourceBranch "Talos-JSP" -TargetBranch "Talos-Hotfix"
-        Merge-TalosRepo -SourceBranch "Talos-JSP" -TargetBranch "Talos-Live"
-    } else {
-        Write-Host "Usage: Talos360 [-MergeHotfix | -MergeUAT | -MergeJSP ]" -ForegroundColor Yellow
+    $selectedRepos = @()
+    if ($Talos)        { $selectedRepos += "Talos" }
+    if ($TalosATS)     { $selectedRepos += "TalosATS" }
+    if ($Onboarding)   { $selectedRepos += "Onboarding" }
+    if ($CareersSites) { $selectedRepos += "CareersSites" }
+
+    if (-not $selectedRepos) {
+        Write-Host "⚠️ Please specify at least one repository." -ForegroundColor Yellow
+        return
+    }
+
+    if ($MergeUAT)     { Invoke-MergePlan -Type "UAT"    -Repos $selectedRepos }
+    if ($MergeHotfix)  { Invoke-MergePlan -Type "Hotfix" -Repos $selectedRepos }
+    if ($MergeJSP)     { Invoke-MergePlan -Type "JSP"    -Repos $selectedRepos }
+
+    if (-not ($MergeUAT -or $MergeHotfix -or $MergeJSP)) {
+        Write-Host "⚠️ Please specify a merge operation: -MergeUAT, -MergeHotfix, or -MergeJSP" -ForegroundColor Yellow
     }
 }
