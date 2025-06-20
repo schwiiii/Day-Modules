@@ -4,8 +4,8 @@
 $global:RepoPaths = @{
     Talos        = "A:\Mapped\talos"
     TalosATS     = "A:\Mapped\talosats"
-    Onboarding   = "A:\Mapped\onboarding"
-    CareersSites = "A:\Mapped\careers"
+    Onboarding   = "A:\Mapped\onboarding-portal"
+    CareersSites = "A:\Mapped\careers-pages"
 }
 
 # Ensure UTF-8 output for proper emoji display
@@ -63,29 +63,40 @@ function Invoke-MergePlan {
         [string[]]$Repos
     )
 
-    foreach ($repo in $Repos) {
-        $path = $RepoPaths[$repo]
-        if (-not $path) {
-            Write-Host "⚠️ Unknown repository: $repo" -ForegroundColor Yellow
-            continue
-        }
-
-        switch ($Type) {
-            "UAT" {
+    switch ($Type) {
+        "UAT" {
+            foreach ($repo in $Repos) {
+                $path = $RepoPaths[$repo]
+                if (-not $path) {
+                    Write-Host "⚠️ Unknown repository: $repo" -ForegroundColor Yellow
+                    continue
+                }
                 Invoke-Merge -RepoPath $path -SourceBranch "$repo-UAT" -TargetBranch "$repo-Hotfix"
                 Invoke-Merge -RepoPath $path -SourceBranch "$repo-UAT" -TargetBranch "$repo-Live"
             }
-            "Hotfix" {
+        }
+        "Hotfix" {
+            foreach ($repo in $Repos) {
+                $path = $RepoPaths[$repo]
+                if (-not $path) {
+                    Write-Host "⚠️ Unknown repository: $repo" -ForegroundColor Yellow
+                    continue
+                }
                 Invoke-Merge -RepoPath $path -SourceBranch "$repo-Hotfix" -TargetBranch "$repo-UAT"
                 Invoke-Merge -RepoPath $path -SourceBranch "$repo-Hotfix" -TargetBranch "$repo-Live"
             }
-            "JSP" {
-                Invoke-Merge -RepoPath $path -SourceBranch "$repo-JSP" -TargetBranch "$repo-UAT"
-                Invoke-Merge -RepoPath $path -SourceBranch "$repo-JSP" -TargetBranch "$repo-Hotfix"
+        }
+        "JSP" {
+            $path = $RepoPaths["Talos"]
+            if ($path) {
+                Invoke-Merge -RepoPath $path -SourceBranch "Talos-JSP" -TargetBranch "Talos-UAT"
+                Invoke-Merge -RepoPath $path -SourceBranch "Talos-JSP" -TargetBranch "Talos-Hotfix"
+            } else {
+                Write-Host "⚠️ 'Talos' repository path not found." -ForegroundColor Yellow
             }
-            default {
-                Write-Host "❓ Unknown merge type: $Type" -ForegroundColor Red
-            }
+        }
+        default {
+            Write-Host "❓ Unknown merge type: $Type" -ForegroundColor Red
         }
     }
 }
@@ -101,6 +112,11 @@ function Talos360 {
         [switch]$CareersSites
     )
 
+    if ($MergeJSP) {
+        Invoke-MergePlan -Type "JSP"
+        return
+    }
+
     $selectedRepos = @()
     if ($Talos)        { $selectedRepos += "Talos" }
     if ($TalosATS)     { $selectedRepos += "TalosATS" }
@@ -114,9 +130,8 @@ function Talos360 {
 
     if ($MergeUAT)     { Invoke-MergePlan -Type "UAT"    -Repos $selectedRepos }
     if ($MergeHotfix)  { Invoke-MergePlan -Type "Hotfix" -Repos $selectedRepos }
-    if ($MergeJSP)     { Invoke-MergePlan -Type "JSP"    -Repos $selectedRepos }
 
-    if (-not ($MergeUAT -or $MergeHotfix -or $MergeJSP)) {
-        Write-Host "⚠️ Please specify a merge operation: -MergeUAT, -MergeHotfix, or -MergeJSP" -ForegroundColor Yellow
+    if (-not ($MergeUAT -or $MergeHotfix)) {
+        Write-Host "⚠️ Please specify a merge operation: -MergeUAT or -MergeHotfix" -ForegroundColor Yellow
     }
 }
