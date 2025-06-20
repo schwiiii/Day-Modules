@@ -1,0 +1,212 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">Az.HealthcareApis</S>
+      <Version N="Version">2.0.0</Version>
+      <S N="Type">Module</S>
+      <S N="Description">Microsoft Azure PowerShell: HealthcareApis cmdlets</S>
+      <S N="Author">Microsoft Corporation</S>
+      <S N="CompanyName">azure-sdk</S>
+      <S N="Copyright">Microsoft Corporation. All rights reserved.</S>
+      <DT N="PublishedDate">2022-05-24T01:00:03+01:00</DT>
+      <Obj N="InstalledDate" RefId="1">
+        <DT>2022-06-29T13:34:49.7450026+01:00</DT>
+        <MS>
+          <Obj N="DisplayHint" RefId="2">
+            <TN RefId="1">
+              <T>Microsoft.PowerShell.Commands.DisplayHintType</T>
+              <T>System.Enum</T>
+              <T>System.ValueType</T>
+              <T>System.Object</T>
+            </TN>
+            <ToString>DateTime</ToString>
+            <I32>2</I32>
+          </Obj>
+        </MS>
+      </Obj>
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://aka.ms/azps-license</URI>
+      <URI N="ProjectUri">https://github.com/Azure/azure-powershell</URI>
+      <Nil N="IconUri" />
+      <Obj N="Tags" RefId="3">
+        <TN RefId="2">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>Azure</S>
+          <S>ResourceManager</S>
+          <S>ARM</S>
+          <S>PSModule</S>
+          <S>HealthcareApis</S>
+          <S>HealthCare</S>
+          <S>FhirService</S>
+          <S>PSEdition_Core</S>
+          <S>PSEdition_Desktop</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="4">
+        <TN RefId="3">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="2" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="5" />
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="5" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="5" />
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="6">
+              <TNRef RefId="2" />
+              <LST>
+                <S>Get-AzHealthcareApisService</S>
+                <S>Get-AzHealthcareApisWorkspace</S>
+                <S>Get-AzHealthcareDicomService</S>
+                <S>Get-AzHealthcareFhirDestination</S>
+                <S>Get-AzHealthcareFhirService</S>
+                <S>Get-AzHealthcareIotConnector</S>
+                <S>Get-AzHealthcareIotConnectorFhirDestination</S>
+                <S>New-AzHealthcareApisService</S>
+                <S>New-AzHealthcareApisWorkspace</S>
+                <S>New-AzHealthcareDicomService</S>
+                <S>New-AzHealthcareFhirService</S>
+                <S>New-AzHealthcareIotConnector</S>
+                <S>New-AzHealthcareIotConnectorFhirDestination</S>
+                <S>Remove-AzHealthcareApisService</S>
+                <S>Remove-AzHealthcareApisWorkspace</S>
+                <S>Remove-AzHealthcareDicomService</S>
+                <S>Remove-AzHealthcareFhirService</S>
+                <S>Remove-AzHealthcareIotConnector</S>
+                <S>Remove-AzHealthcareIotConnectorFhirDestination</S>
+                <S>Test-AzHealthcareServiceNameAvailability</S>
+                <S>Update-AzHealthcareApisService</S>
+                <S>Update-AzHealthcareApisWorkspace</S>
+                <S>Update-AzHealthcareDicomService</S>
+                <S>Update-AzHealthcareFhirService</S>
+                <S>Update-AzHealthcareIotConnector</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="7">
+              <TNRef RefId="2" />
+              <LST>
+                <S>Get-AzHealthcareApisService</S>
+                <S>Get-AzHealthcareApisWorkspace</S>
+                <S>Get-AzHealthcareDicomService</S>
+                <S>Get-AzHealthcareFhirDestination</S>
+                <S>Get-AzHealthcareFhirService</S>
+                <S>Get-AzHealthcareIotConnector</S>
+                <S>Get-AzHealthcareIotConnectorFhirDestination</S>
+                <S>New-AzHealthcareApisService</S>
+                <S>New-AzHealthcareApisWorkspace</S>
+                <S>New-AzHealthcareDicomService</S>
+                <S>New-AzHealthcareFhirService</S>
+                <S>New-AzHealthcareIotConnector</S>
+                <S>New-AzHealthcareIotConnectorFhirDestination</S>
+                <S>Remove-AzHealthcareApisService</S>
+                <S>Remove-AzHealthcareApisWorkspace</S>
+                <S>Remove-AzHealthcareDicomService</S>
+                <S>Remove-AzHealthcareFhirService</S>
+                <S>Remove-AzHealthcareIotConnector</S>
+                <S>Remove-AzHealthcareIotConnectorFhirDestination</S>
+                <S>Test-AzHealthcareServiceNameAvailability</S>
+                <S>Update-AzHealthcareApisService</S>
+                <S>Update-AzHealthcareApisWorkspace</S>
+                <S>Update-AzHealthcareDicomService</S>
+                <S>Update-AzHealthcareFhirService</S>
+                <S>Update-AzHealthcareIotConnector</S>
+              </LST>
+            </Obj>
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes">* Migrated module to generated codebase._x000D__x000A_* Added cmdlets:_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareApisService_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareApisWorkspace_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareFhirService_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareDicomService_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareIoTConnector_x000D__x000A_    - New/Get/Remove-AzHealthcareIotConnectorFhirDestination_x000D__x000A_    - Get-AzHealthcareFhirDestination</S>
+      <Obj N="Dependencies" RefId="8">
+        <TNRef RefId="2" />
+        <LST>
+          <Obj RefId="9">
+            <TN RefId="4">
+              <T>System.Collections.Specialized.OrderedDictionary</T>
+              <T>System.Object</T>
+            </TN>
+            <DCT>
+              <En>
+                <S N="Key">Name</S>
+                <S N="Value">Az.Accounts</S>
+              </En>
+              <En>
+                <S N="Key">MinimumVersion</S>
+                <S N="Value">2.8.0</S>
+              </En>
+              <En>
+                <S N="Key">CanonicalId</S>
+                <S N="Value">nuget:Az.Accounts/2.8.0</S>
+              </En>
+            </DCT>
+          </Obj>
+        </LST>
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="10">
+        <TN RefId="5">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">Microsoft Corporation. All rights reserved.</S>
+          <S N="description">Microsoft Azure PowerShell: HealthcareApis cmdlets</S>
+          <S N="requireLicenseAcceptance">True</S>
+          <S N="releaseNotes">* Migrated module to generated codebase._x000D__x000A_* Added cmdlets:_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareApisService_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareApisWorkspace_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareFhirService_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareDicomService_x000D__x000A_    - New/Get/Update/Remove-AzHealthcareIoTConnector_x000D__x000A_    - New/Get/Remove-AzHealthcareIotConnectorFhirDestination_x000D__x000A_    - Get-AzHealthcareFhirDestination</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">880070</S>
+          <S N="downloadCount">30782496</S>
+          <S N="packageSize">744325</S>
+          <S N="published">24/05/2022 01:00:03 +01:00</S>
+          <S N="created">24/05/2022 01:00:03 +01:00</S>
+          <S N="lastUpdated">29/06/2022 12:33:47 +01:00</S>
+          <S N="tags">Azure ResourceManager ARM PSModule HealthcareApis HealthCare FhirService PSEdition_Core PSEdition_Desktop PSFunction_Get-AzHealthcareApisService PSCommand_Get-AzHealthcareApisService PSFunction_Get-AzHealthcareApisWorkspace PSCommand_Get-AzHealthcareApisWorkspace PSFunction_Get-AzHealthcareDicomService PSCommand_Get-AzHealthcareDicomService PSFunction_Get-AzHealthcareFhirDestination PSCommand_Get-AzHealthcareFhirDestination PSFunction_Get-AzHealthcareFhirService PSCommand_Get-AzHealthcareFhirService PSFunction_Get-AzHealthcareIotConnector PSCommand_Get-AzHealthcareIotConnector PSFunction_Get-AzHealthcareIotConnectorFhirDestination PSCommand_Get-AzHealthcareIotConnectorFhirDestination PSFunction_New-AzHealthcareApisService PSCommand_New-AzHealthcareApisService PSFunction_New-AzHealthcareApisWorkspace PSCommand_New-AzHealthcareApisWorkspace PSFunction_New-AzHealthcareDicomService PSCommand_New-AzHealthcareDicomService PSFunction_New-AzHealthcareFhirService PSCommand_New-AzHealthcareFhirService PSFunction_New-AzHealthcareIotConnector PSCommand_New-AzHealthcareIotConnector PSFunction_New-AzHealthcareIotConnectorFhirDestination PSCommand_New-AzHealthcareIotConnectorFhirDestination PSFunction_Remove-AzHealthcareApisService PSCommand_Remove-AzHealthcareApisService PSFunction_Remove-AzHealthcareApisWorkspace PSCommand_Remove-AzHealthcareApisWorkspace PSFunction_Remove-AzHealthcareDicomService PSCommand_Remove-AzHealthcareDicomService PSFunction_Remove-AzHealthcareFhirService PSCommand_Remove-AzHealthcareFhirService PSFunction_Remove-AzHealthcareIotConnector PSCommand_Remove-AzHealthcareIotConnector PSFunction_Remove-AzHealthcareIotConnectorFhirDestination PSCommand_Remove-AzHealthcareIotConnectorFhirDestination PSFunction_Test-AzHealthcareServiceNameAvailability PSCommand_Test-AzHealthcareServiceNameAvailability PSFunction_Update-AzHealthcareApisService PSCommand_Update-AzHealthcareApisService PSFunction_Update-AzHealthcareApisWorkspace PSCommand_Update-AzHealthcareApisWorkspace PSFunction_Update-AzHealthcareDicomService PSCommand_Update-AzHealthcareDicomService PSFunction_Update-AzHealthcareFhirService PSCommand_Update-AzHealthcareFhirService PSFunction_Update-AzHealthcareIotConnector PSCommand_Update-AzHealthcareIotConnector PSIncludes_Function</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2022-06-29T12:33:47Z</S>
+          <S N="NormalizedVersion">2.0.0</S>
+          <S N="Authors">Microsoft Corporation</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">Az.HealthcareApis.nuspec|Az.HealthcareApis.format.ps1xml|Az.HealthcareApis.psd1|Az.HealthcareApis.psm1|bin\Az.HealthcareApis.private.deps.json|bin\Az.HealthcareApis.private.dll|custom\Az.HealthcareApis.custom.psm1|custom\New-AzHealthcareApisService.ps1|custom\New-AzHealthcareApisWorkspace.ps1|custom\New-AzHealthcareDicomService.ps1|custom\New-AzHealthcareFhirService.ps1|custom\New-AzHealthcareIotConnector.ps1|custom\New-AzHealthcareIotConnectorFhirDestination.ps1|exports\ProxyCmdletDefinitions.ps1|internal\Az.HealthcareApis.internal.psm1|internal\ProxyCmdletDefinitions.ps1|utils\Unprotect-SecureString.ps1</S>
+          <S N="GUID">de3f478d-0227-4782-85cf-62fb649b685a</S>
+          <S N="PowerShellVersion">5.1</S>
+          <S N="DotNetFrameworkVersion">4.7.2</S>
+          <S N="CompanyName">Microsoft Corporation</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">D:\Users\Day\Documents\PowerShell\Modules\Az.HealthcareApis\2.0.0</S>
+    </MS>
+  </Obj>
+</Objs>

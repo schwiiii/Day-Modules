@@ -1,0 +1,525 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">Az.Resources</S>
+      <Version N="Version">6.0.0</Version>
+      <S N="Type">Module</S>
+      <S N="Description">Microsoft Azure PowerShell - Azure Resource Manager and Active Directory cmdlets in Windows PowerShell and PowerShell Core.  Manages subscriptions, tenants, resource groups, deployment templates, providers, and resource permissions in Azure Resource Manager.  Provides cmdlets for managing resources generically across resource providers._x000D__x000A_For more information on Resource Manager, please visit the following: https://docs.microsoft.com/azure/azure-resource-manager/_x000D__x000A_For more information on Active Directory, please visit the following: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis</S>
+      <S N="Author">Microsoft Corporation</S>
+      <S N="CompanyName">azure-sdk</S>
+      <S N="Copyright">Microsoft Corporation. All rights reserved.</S>
+      <DT N="PublishedDate">2022-05-24T01:03:23+01:00</DT>
+      <Obj N="InstalledDate" RefId="1">
+        <DT>2022-06-29T13:35:02.997792+01:00</DT>
+        <MS>
+          <Obj N="DisplayHint" RefId="2">
+            <TN RefId="1">
+              <T>Microsoft.PowerShell.Commands.DisplayHintType</T>
+              <T>System.Enum</T>
+              <T>System.ValueType</T>
+              <T>System.Object</T>
+            </TN>
+            <ToString>DateTime</ToString>
+            <I32>2</I32>
+          </Obj>
+        </MS>
+      </Obj>
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://aka.ms/azps-license</URI>
+      <URI N="ProjectUri">https://github.com/Azure/azure-powershell</URI>
+      <Nil N="IconUri" />
+      <Obj N="Tags" RefId="3">
+        <TN RefId="2">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>Azure</S>
+          <S>ResourceManager</S>
+          <S>ARM</S>
+          <S>Provider</S>
+          <S>ResourceGroup</S>
+          <S>Deployment</S>
+          <S>ActiveDirectory</S>
+          <S>Authorization</S>
+          <S>Management</S>
+          <S>ManagementGroups</S>
+          <S>Tags</S>
+          <S>PSModule</S>
+          <S>PSEdition_Core</S>
+          <S>PSEdition_Desktop</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="4">
+        <TN RefId="3">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Obj N="Value" RefId="5">
+              <TNRef RefId="2" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="5" />
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Obj N="Value" RefId="6">
+              <TNRef RefId="2" />
+              <LST>
+                <S>Get-AzProviderOperation</S>
+                <S>Remove-AzRoleAssignment</S>
+                <S>Get-AzRoleAssignment</S>
+                <S>New-AzRoleAssignment</S>
+                <S>Set-AzRoleAssignment</S>
+                <S>Get-AzRoleDefinition</S>
+                <S>New-AzRoleDefinition</S>
+                <S>Set-AzRoleDefinition</S>
+                <S>Remove-AzRoleDefinition</S>
+                <S>Remove-AzResourceGroup</S>
+                <S>Get-AzProviderFeature</S>
+                <S>Register-AzProviderFeature</S>
+                <S>Unregister-AzProviderFeature</S>
+                <S>Get-AzProviderPreviewFeature</S>
+                <S>Register-AzProviderPreviewFeature</S>
+                <S>Unregister-AzProviderPreviewFeature</S>
+                <S>Get-AzLocation</S>
+                <S>Export-AzResourceGroup</S>
+                <S>Get-AzResourceProvider</S>
+                <S>Register-AzResourceProvider</S>
+                <S>Unregister-AzResourceProvider</S>
+                <S>Get-AzResourceGroupDeployment</S>
+                <S>New-AzResourceGroupDeployment</S>
+                <S>Remove-AzResourceGroupDeployment</S>
+                <S>Stop-AzResourceGroupDeployment</S>
+                <S>Test-AzResourceGroupDeployment</S>
+                <S>Set-AzResourceGroup</S>
+                <S>New-AzResourceGroup</S>
+                <S>Get-AzResourceGroup</S>
+                <S>Save-AzResourceGroupDeploymentTemplate</S>
+                <S>Get-AzResourceGroupDeploymentOperation</S>
+                <S>Get-AzResourceLock</S>
+                <S>Invoke-AzResourceAction</S>
+                <S>Move-AzResource</S>
+                <S>New-AzResourceLock</S>
+                <S>Get-AzPolicyAssignment</S>
+                <S>Get-AzPolicyDefinition</S>
+                <S>Get-AzPolicySetDefinition</S>
+                <S>Get-AzPolicyExemption</S>
+                <S>New-AzPolicyAssignment</S>
+                <S>New-AzPolicyDefinition</S>
+                <S>New-AzPolicySetDefinition</S>
+                <S>New-AzPolicyExemption</S>
+                <S>Remove-AzPolicyAssignment</S>
+                <S>Remove-AzPolicyDefinition</S>
+                <S>Remove-AzPolicySetDefinition</S>
+                <S>Remove-AzPolicyExemption</S>
+                <S>Set-AzPolicyAssignment</S>
+                <S>Set-AzPolicyDefinition</S>
+                <S>Set-AzPolicySetDefinition</S>
+                <S>Set-AzPolicyExemption</S>
+                <S>Remove-AzResource</S>
+                <S>Remove-AzResourceLock</S>
+                <S>Set-AzResource</S>
+                <S>New-AzResource</S>
+                <S>Set-AzResourceLock</S>
+                <S>Get-AzResource</S>
+                <S>Get-AzManagedApplicationDefinition</S>
+                <S>New-AzManagedApplicationDefinition</S>
+                <S>Set-AzManagedApplicationDefinition</S>
+                <S>Remove-AzManagedApplicationDefinition</S>
+                <S>Get-AzManagedApplication</S>
+                <S>New-AzManagedApplication</S>
+                <S>Set-AzManagedApplication</S>
+                <S>Remove-AzManagedApplication</S>
+                <S>Get-AzManagementGroup</S>
+                <S>New-AzManagementGroup</S>
+                <S>Update-AzManagementGroup</S>
+                <S>Remove-AzManagementGroup</S>
+                <S>New-AzManagementGroupSubscription</S>
+                <S>Remove-AzManagementGroupSubscription</S>
+                <S>New-AzDeployment</S>
+                <S>Get-AzDeployment</S>
+                <S>Test-AzDeployment</S>
+                <S>Remove-AzDeployment</S>
+                <S>Stop-AzDeployment</S>
+                <S>Save-AzDeploymentTemplate</S>
+                <S>Get-AzDeploymentOperation</S>
+                <S>Get-AzManagementGroupDeployment</S>
+                <S>Test-AzManagementGroupDeployment</S>
+                <S>New-AzManagementGroupDeployment</S>
+                <S>Get-AzManagementGroupDeploymentOperation</S>
+                <S>Save-AzManagementGroupDeploymentTemplate</S>
+                <S>Stop-AzManagementGroupDeployment</S>
+                <S>Remove-AzManagementGroupDeployment</S>
+                <S>Get-AzTenantDeployment</S>
+                <S>Test-AzTenantDeployment</S>
+                <S>New-AzTenantDeployment</S>
+                <S>Get-AzTenantDeploymentOperation</S>
+                <S>Save-AzTenantDeploymentTemplate</S>
+                <S>Stop-AzTenantDeployment</S>
+                <S>Remove-AzTenantDeployment</S>
+                <S>Get-AzPolicyAlias</S>
+                <S>Remove-AzTag</S>
+                <S>Get-AzTag</S>
+                <S>New-AzTag</S>
+                <S>Get-AzDenyAssignment</S>
+                <S>Update-AzTag</S>
+                <S>Get-AzDeploymentScript</S>
+                <S>Get-AzDeploymentScriptLog</S>
+                <S>Save-AzDeploymentScriptLog</S>
+                <S>Remove-AzDeploymentScript</S>
+                <S>Get-AzDeploymentWhatIfResult</S>
+                <S>Get-AzResourceGroupDeploymentWhatIfResult</S>
+                <S>Get-AzManagementGroupDeploymentWhatIfResult</S>
+                <S>Get-AzTenantDeploymentWhatIfResult</S>
+                <S>Get-AzTemplateSpec</S>
+                <S>New-AzTemplateSpec</S>
+                <S>Set-AzTemplateSpec</S>
+                <S>Export-AzTemplateSpec</S>
+                <S>Remove-AzTemplateSpec</S>
+                <S>Publish-AzBicepModule</S>
+                <S>Get-AzResourceManagementPrivateLink</S>
+                <S>Remove-AzResourceManagementPrivateLink</S>
+                <S>New-AzResourceManagementPrivateLink</S>
+                <S>New-AzPrivateLinkAssociation</S>
+                <S>Get-AzPrivateLinkAssociation</S>
+                <S>Remove-AzPrivateLinkAssociation</S>
+                <S>Get-AzManagementGroupEntity</S>
+                <S>Get-AzManagementGroupNameAvailability</S>
+                <S>Get-AzTenantBackfillStatus</S>
+                <S>Start-AzTenantBackfill</S>
+                <S>Get-AzManagementGroupSubscription</S>
+                <S>New-AzManagementGroupHierarchySetting</S>
+                <S>Update-AzManagementGroupHierarchySetting</S>
+                <S>Get-AzManagementGroupHierarchySetting</S>
+                <S>Remove-AzManagementGroupHierarchySetting</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="5" />
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Obj N="Value" RefId="7">
+              <TNRef RefId="2" />
+              <LST>
+                <S>Get-AzProviderOperation</S>
+                <S>Remove-AzRoleAssignment</S>
+                <S>Get-AzRoleAssignment</S>
+                <S>New-AzRoleAssignment</S>
+                <S>Set-AzRoleAssignment</S>
+                <S>Get-AzRoleDefinition</S>
+                <S>New-AzRoleDefinition</S>
+                <S>Set-AzRoleDefinition</S>
+                <S>Remove-AzRoleDefinition</S>
+                <S>Remove-AzResourceGroup</S>
+                <S>Get-AzProviderFeature</S>
+                <S>Register-AzProviderFeature</S>
+                <S>Unregister-AzProviderFeature</S>
+                <S>Get-AzProviderPreviewFeature</S>
+                <S>Register-AzProviderPreviewFeature</S>
+                <S>Unregister-AzProviderPreviewFeature</S>
+                <S>Get-AzLocation</S>
+                <S>Export-AzResourceGroup</S>
+                <S>Get-AzResourceProvider</S>
+                <S>Register-AzResourceProvider</S>
+                <S>Unregister-AzResourceProvider</S>
+                <S>Get-AzResourceGroupDeployment</S>
+                <S>New-AzResourceGroupDeployment</S>
+                <S>Remove-AzResourceGroupDeployment</S>
+                <S>Stop-AzResourceGroupDeployment</S>
+                <S>Test-AzResourceGroupDeployment</S>
+                <S>Set-AzResourceGroup</S>
+                <S>New-AzResourceGroup</S>
+                <S>Get-AzResourceGroup</S>
+                <S>Save-AzResourceGroupDeploymentTemplate</S>
+                <S>Get-AzResourceGroupDeploymentOperation</S>
+                <S>Get-AzResourceLock</S>
+                <S>Invoke-AzResourceAction</S>
+                <S>Move-AzResource</S>
+                <S>New-AzResourceLock</S>
+                <S>Get-AzPolicyAssignment</S>
+                <S>Get-AzPolicyDefinition</S>
+                <S>Get-AzPolicySetDefinition</S>
+                <S>Get-AzPolicyExemption</S>
+                <S>New-AzPolicyAssignment</S>
+                <S>New-AzPolicyDefinition</S>
+                <S>New-AzPolicySetDefinition</S>
+                <S>New-AzPolicyExemption</S>
+                <S>Remove-AzPolicyAssignment</S>
+                <S>Remove-AzPolicyDefinition</S>
+                <S>Remove-AzPolicySetDefinition</S>
+                <S>Remove-AzPolicyExemption</S>
+                <S>Set-AzPolicyAssignment</S>
+                <S>Set-AzPolicyDefinition</S>
+                <S>Set-AzPolicySetDefinition</S>
+                <S>Set-AzPolicyExemption</S>
+                <S>Remove-AzResource</S>
+                <S>Remove-AzResourceLock</S>
+                <S>Set-AzResource</S>
+                <S>New-AzResource</S>
+                <S>Set-AzResourceLock</S>
+                <S>Get-AzResource</S>
+                <S>Get-AzManagedApplicationDefinition</S>
+                <S>New-AzManagedApplicationDefinition</S>
+                <S>Set-AzManagedApplicationDefinition</S>
+                <S>Remove-AzManagedApplicationDefinition</S>
+                <S>Get-AzManagedApplication</S>
+                <S>New-AzManagedApplication</S>
+                <S>Set-AzManagedApplication</S>
+                <S>Remove-AzManagedApplication</S>
+                <S>Get-AzManagementGroup</S>
+                <S>New-AzManagementGroup</S>
+                <S>Update-AzManagementGroup</S>
+                <S>Remove-AzManagementGroup</S>
+                <S>New-AzManagementGroupSubscription</S>
+                <S>Remove-AzManagementGroupSubscription</S>
+                <S>New-AzDeployment</S>
+                <S>Get-AzDeployment</S>
+                <S>Test-AzDeployment</S>
+                <S>Remove-AzDeployment</S>
+                <S>Stop-AzDeployment</S>
+                <S>Save-AzDeploymentTemplate</S>
+                <S>Get-AzDeploymentOperation</S>
+                <S>Get-AzManagementGroupDeployment</S>
+                <S>Test-AzManagementGroupDeployment</S>
+                <S>New-AzManagementGroupDeployment</S>
+                <S>Get-AzManagementGroupDeploymentOperation</S>
+                <S>Save-AzManagementGroupDeploymentTemplate</S>
+                <S>Stop-AzManagementGroupDeployment</S>
+                <S>Remove-AzManagementGroupDeployment</S>
+                <S>Get-AzTenantDeployment</S>
+                <S>Test-AzTenantDeployment</S>
+                <S>New-AzTenantDeployment</S>
+                <S>Get-AzTenantDeploymentOperation</S>
+                <S>Save-AzTenantDeploymentTemplate</S>
+                <S>Stop-AzTenantDeployment</S>
+                <S>Remove-AzTenantDeployment</S>
+                <S>Get-AzPolicyAlias</S>
+                <S>Remove-AzTag</S>
+                <S>Get-AzTag</S>
+                <S>New-AzTag</S>
+                <S>Get-AzDenyAssignment</S>
+                <S>Update-AzTag</S>
+                <S>Get-AzDeploymentScript</S>
+                <S>Get-AzDeploymentScriptLog</S>
+                <S>Save-AzDeploymentScriptLog</S>
+                <S>Remove-AzDeploymentScript</S>
+                <S>Get-AzDeploymentWhatIfResult</S>
+                <S>Get-AzResourceGroupDeploymentWhatIfResult</S>
+                <S>Get-AzManagementGroupDeploymentWhatIfResult</S>
+                <S>Get-AzTenantDeploymentWhatIfResult</S>
+                <S>Get-AzTemplateSpec</S>
+                <S>New-AzTemplateSpec</S>
+                <S>Set-AzTemplateSpec</S>
+                <S>Export-AzTemplateSpec</S>
+                <S>Remove-AzTemplateSpec</S>
+                <S>Publish-AzBicepModule</S>
+                <S>Get-AzResourceManagementPrivateLink</S>
+                <S>Remove-AzResourceManagementPrivateLink</S>
+                <S>New-AzResourceManagementPrivateLink</S>
+                <S>New-AzPrivateLinkAssociation</S>
+                <S>Get-AzPrivateLinkAssociation</S>
+                <S>Remove-AzPrivateLinkAssociation</S>
+                <S>Get-AzManagementGroupEntity</S>
+                <S>Get-AzManagementGroupNameAvailability</S>
+                <S>Get-AzTenantBackfillStatus</S>
+                <S>Start-AzTenantBackfill</S>
+                <S>Get-AzManagementGroupSubscription</S>
+                <S>New-AzManagementGroupHierarchySetting</S>
+                <S>Update-AzManagementGroupHierarchySetting</S>
+                <S>Get-AzManagementGroupHierarchySetting</S>
+                <S>Remove-AzManagementGroupHierarchySetting</S>
+                <S>Add-AzADAppPermission</S>
+                <S>Add-AzADGroupMember</S>
+                <S>Get-AzADAppCredential</S>
+                <S>Get-AzADApplication</S>
+                <S>Get-AzADAppPermission</S>
+                <S>Get-AzADGroup</S>
+                <S>Get-AzADGroupMember</S>
+                <S>Get-AzADServicePrincipal</S>
+                <S>Get-AzADSpCredential</S>
+                <S>Get-AzADUser</S>
+                <S>New-AzADAppCredential</S>
+                <S>New-AzADApplication</S>
+                <S>New-AzADGroup</S>
+                <S>New-AzADServicePrincipal</S>
+                <S>New-AzADSpCredential</S>
+                <S>New-AzADUser</S>
+                <S>Remove-AzADAppCredential</S>
+                <S>Remove-AzADApplication</S>
+                <S>Remove-AzADAppPermission</S>
+                <S>Remove-AzADGroup</S>
+                <S>Remove-AzADGroupMember</S>
+                <S>Remove-AzADServicePrincipal</S>
+                <S>Remove-AzADSpCredential</S>
+                <S>Remove-AzADUser</S>
+                <S>Update-AzADApplication</S>
+                <S>Update-AzADServicePrincipal</S>
+                <S>Update-AzADUser</S>
+                <S>Get-AzRoleAssignmentSchedule</S>
+                <S>Get-AzRoleAssignmentScheduleInstance</S>
+                <S>Get-AzRoleAssignmentScheduleRequest</S>
+                <S>Get-AzRoleEligibilitySchedule</S>
+                <S>Get-AzRoleEligibilityScheduleInstance</S>
+                <S>Get-AzRoleEligibilityScheduleRequest</S>
+                <S>Get-AzRoleEligibleChildResource</S>
+                <S>Get-AzRoleManagementPolicy</S>
+                <S>Get-AzRoleManagementPolicyAssignment</S>
+                <S>New-AzRoleAssignmentScheduleRequest</S>
+                <S>New-AzRoleEligibilityScheduleRequest</S>
+                <S>New-AzRoleManagementPolicyAssignment</S>
+                <S>Remove-AzRoleManagementPolicy</S>
+                <S>Remove-AzRoleManagementPolicyAssignment</S>
+                <S>Stop-AzRoleAssignmentScheduleRequest</S>
+                <S>Stop-AzRoleEligibilityScheduleRequest</S>
+                <S>Update-AzRoleManagementPolicy</S>
+                <S>Update-AzADGroup</S>
+                <S>Get-AzADAppFederatedIdentityCredential</S>
+                <S>New-AzADAppFederatedIdentityCredential</S>
+                <S>Remove-AzADAppFederatedIdentityCredential</S>
+                <S>Update-AzADAppFederatedIdentityCredential</S>
+              </LST>
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Obj N="Value" RefId="8">
+              <TNRef RefId="2" />
+              <LST>
+                <S>Add-AzADAppPermission</S>
+                <S>Add-AzADGroupMember</S>
+                <S>Get-AzADAppCredential</S>
+                <S>Get-AzADApplication</S>
+                <S>Get-AzADAppPermission</S>
+                <S>Get-AzADGroup</S>
+                <S>Get-AzADGroupMember</S>
+                <S>Get-AzADServicePrincipal</S>
+                <S>Get-AzADSpCredential</S>
+                <S>Get-AzADUser</S>
+                <S>New-AzADAppCredential</S>
+                <S>New-AzADApplication</S>
+                <S>New-AzADGroup</S>
+                <S>New-AzADServicePrincipal</S>
+                <S>New-AzADSpCredential</S>
+                <S>New-AzADUser</S>
+                <S>Remove-AzADAppCredential</S>
+                <S>Remove-AzADApplication</S>
+                <S>Remove-AzADAppPermission</S>
+                <S>Remove-AzADGroup</S>
+                <S>Remove-AzADGroupMember</S>
+                <S>Remove-AzADServicePrincipal</S>
+                <S>Remove-AzADSpCredential</S>
+                <S>Remove-AzADUser</S>
+                <S>Update-AzADApplication</S>
+                <S>Update-AzADServicePrincipal</S>
+                <S>Update-AzADUser</S>
+                <S>Get-AzRoleAssignmentSchedule</S>
+                <S>Get-AzRoleAssignmentScheduleInstance</S>
+                <S>Get-AzRoleAssignmentScheduleRequest</S>
+                <S>Get-AzRoleEligibilitySchedule</S>
+                <S>Get-AzRoleEligibilityScheduleInstance</S>
+                <S>Get-AzRoleEligibilityScheduleRequest</S>
+                <S>Get-AzRoleEligibleChildResource</S>
+                <S>Get-AzRoleManagementPolicy</S>
+                <S>Get-AzRoleManagementPolicyAssignment</S>
+                <S>New-AzRoleAssignmentScheduleRequest</S>
+                <S>New-AzRoleEligibilityScheduleRequest</S>
+                <S>New-AzRoleManagementPolicyAssignment</S>
+                <S>Remove-AzRoleManagementPolicy</S>
+                <S>Remove-AzRoleManagementPolicyAssignment</S>
+                <S>Stop-AzRoleAssignmentScheduleRequest</S>
+                <S>Stop-AzRoleEligibilityScheduleRequest</S>
+                <S>Update-AzRoleManagementPolicy</S>
+                <S>Update-AzADGroup</S>
+                <S>Get-AzADAppFederatedIdentityCredential</S>
+                <S>New-AzADAppFederatedIdentityCredential</S>
+                <S>Remove-AzADAppFederatedIdentityCredential</S>
+                <S>Update-AzADAppFederatedIdentityCredential</S>
+              </LST>
+            </Obj>
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <S N="ReleaseNotes">* Added cmdlet for Application federated identity credential_x000D__x000A_    - 'Get-AzADAppFederatedIdentityCredential' _x000D__x000A_    - 'New-AzADAppFederatedIdentityCredential' _x000D__x000A_    - 'Remove-AzADAppFederatedIdentityCredential'_x000D__x000A_    - 'Update-AzADAppFederatedIdentityCredential'_x000D__x000A_* Upgraded and revised 'Get-AzLocation' cmdlet:_x000D__x000A_    - Upgraded 'subscriptionClient' for 'Get-AzLocation'. Changed its apiVersion from 2016-01-01 to 2021-01-01.[#18002]_x000D__x000A_    - Added all attributes of location info for 'Get-AzLocation', including 'pairedRegion' and so on. [#18045][#17536]_x000D__x000A_    - Support ExtendedLocations by 'Get-AzLocation' [#18046]_x000D__x000A_* Added the following cmdlets to remain in parity with 2021-04-01 API version:_x000D__x000A_    - 'New-AzHierarchySetting'_x000D__x000A_    - 'Get-AzHierarchySetting'_x000D__x000A_    - 'Update-AzHierarchySetting'_x000D__x000A_    - 'Remove-AzHierarchySetting'_x000D__x000A_    - 'Get-AzManagementGroupSubscription'_x000D__x000A_    - 'Get-AzSubscriptionUnderManagementGroup' _x000D__x000A_    - 'Start-AzTenantBackfill'_x000D__x000A_    - 'Get-AzTenantBackfillStatus' _x000D__x000A_    - 'Get-AzManagementGroupNameAvailability'_x000D__x000A_    - 'Get-AzEntity' _x000D__x000A_* [Breaking Change] Renamed property 'isSyncedFromOnPremis' to 'isSyncedFromOnPremise' to align with API spec</S>
+      <Obj N="Dependencies" RefId="9">
+        <TNRef RefId="2" />
+        <LST>
+          <Obj RefId="10">
+            <TN RefId="4">
+              <T>System.Collections.Specialized.OrderedDictionary</T>
+              <T>System.Object</T>
+            </TN>
+            <DCT>
+              <En>
+                <S N="Key">Name</S>
+                <S N="Value">Az.Accounts</S>
+              </En>
+              <En>
+                <S N="Key">MinimumVersion</S>
+                <S N="Value">2.8.0</S>
+              </En>
+              <En>
+                <S N="Key">CanonicalId</S>
+                <S N="Value">nuget:Az.Accounts/2.8.0</S>
+              </En>
+            </DCT>
+          </Obj>
+        </LST>
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="11">
+        <TN RefId="5">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">Microsoft Corporation. All rights reserved.</S>
+          <S N="description">Microsoft Azure PowerShell - Azure Resource Manager and Active Directory cmdlets in Windows PowerShell and PowerShell Core.  Manages subscriptions, tenants, resource groups, deployment templates, providers, and resource permissions in Azure Resource Manager.  Provides cmdlets for managing resources generically across resource providers._x000D__x000A_For more information on Resource Manager, please visit the following: https://docs.microsoft.com/azure/azure-resource-manager/_x000D__x000A_For more information on Active Directory, please visit the following: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis</S>
+          <S N="requireLicenseAcceptance">True</S>
+          <S N="releaseNotes">* Added cmdlet for Application federated identity credential_x000D__x000A_    - 'Get-AzADAppFederatedIdentityCredential' _x000D__x000A_    - 'New-AzADAppFederatedIdentityCredential' _x000D__x000A_    - 'Remove-AzADAppFederatedIdentityCredential'_x000D__x000A_    - 'Update-AzADAppFederatedIdentityCredential'_x000D__x000A_* Upgraded and revised 'Get-AzLocation' cmdlet:_x000D__x000A_    - Upgraded 'subscriptionClient' for 'Get-AzLocation'. Changed its apiVersion from 2016-01-01 to 2021-01-01.[#18002]_x000D__x000A_    - Added all attributes of location info for 'Get-AzLocation', including 'pairedRegion' and so on. [#18045][#17536]_x000D__x000A_    - Support ExtendedLocations by 'Get-AzLocation' [#18046]_x000D__x000A_* Added the following cmdlets to remain in parity with 2021-04-01 API version:_x000D__x000A_    - 'New-AzHierarchySetting'_x000D__x000A_    - 'Get-AzHierarchySetting'_x000D__x000A_    - 'Update-AzHierarchySetting'_x000D__x000A_    - 'Remove-AzHierarchySetting'_x000D__x000A_    - 'Get-AzManagementGroupSubscription'_x000D__x000A_    - 'Get-AzSubscriptionUnderManagementGroup' _x000D__x000A_    - 'Start-AzTenantBackfill'_x000D__x000A_    - 'Get-AzTenantBackfillStatus' _x000D__x000A_    - 'Get-AzManagementGroupNameAvailability'_x000D__x000A_    - 'Get-AzEntity' _x000D__x000A_* [Breaking Change] Renamed property 'isSyncedFromOnPremis' to 'isSyncedFromOnPremise' to align with API spec</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">1244505</S>
+          <S N="downloadCount">40281796</S>
+          <S N="packageSize">2880211</S>
+          <S N="published">24/05/2022 01:03:23 +01:00</S>
+          <S N="created">24/05/2022 01:03:23 +01:00</S>
+          <S N="lastUpdated">29/06/2022 12:28:47 +01:00</S>
+          <S N="tags">Azure ResourceManager ARM Provider ResourceGroup Deployment ActiveDirectory Authorization Management ManagementGroups Tags PSModule PSEdition_Core PSEdition_Desktop</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2022-06-29T12:28:47Z</S>
+          <S N="NormalizedVersion">6.0.0</S>
+          <S N="Authors">Microsoft Corporation</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">Az.Resources.nuspec|AutoMapper.dll|Az.Resources.psd1|Az.Resources.psm1|Microsoft.Azure.Management.Authorization.dll|Microsoft.Azure.Management.ManagementGroups.dll|Microsoft.Azure.Management.ResourceManager.dll|Microsoft.Azure.PowerShell.Cmdlets.ResourceManager.deps.json|Microsoft.Azure.PowerShell.Cmdlets.ResourceManager.dll|Microsoft.Azure.PowerShell.Cmdlets.ResourceManager.dll-Help.xml|Microsoft.Azure.PowerShell.Cmdlets.Resources.deps.json|Microsoft.Azure.PowerShell.Cmdlets.Resources.dll|Microsoft.Azure.PowerShell.Cmdlets.Resources.dll-Help.xml|Microsoft.Azure.PowerShell.Cmdlets.Tags.deps.json|Microsoft.Azure.PowerShell.Cmdlets.Tags.dll|Microsoft.Azure.PowerShell.Cmdlets.Tags.dll-Help.xml|Microsoft.Extensions.Caching.Abstractions.dll|Microsoft.Extensions.Caching.Memory.dll|Microsoft.Extensions.DependencyInjection.Abstractions.dll|Microsoft.Extensions.Options.dll|Microsoft.Extensions.Primitives.dll|ResourceManager.format.ps1xml|ResourceManager.generated.format.ps1xml|Resources.format.ps1xml|System.Runtime.CompilerServices.Unsafe.dll|Tags.format.ps1xml|Authorization.Autorest\Az.Authorization.format.ps1xml|Authorization.Autorest\Az.Authorization.psm1|Authorization.Autorest\bin\Az.Authorization.private.deps.json|Authorization.Autorest\bin\Az.Authorization.private.dll|Authorization.Autorest\bin\System.Runtime.CompilerServices.Unsafe.dll|Authorization.Autorest\custom\Az.Authorization.custom.psm1|Authorization.Autorest\exports\ProxyCmdletDefinitions.ps1|Authorization.Autorest\internal\Az.Authorization.internal.psm1|Authorization.Autorest\utils\Unprotect-SecureString.ps1|MSGraph.Autorest\Az.MSGraph.format.ps1xml|MSGraph.Autorest\Az.MSGraph.psm1|MSGraph.Autorest\bin\Az.MSGraph.private.deps.json|MSGraph.Autorest\bin\Az.MSGraph.private.dll|MSGraph.Autorest\bin\System.Runtime.CompilerServices.Unsafe.dll|MSGraph.Autorest\custom\Add-AzADAppPermission.ps1|MSGraph.Autorest\custom\Add-AzADGroupMember.ps1|MSGraph.Autorest\custom\Az.MSGraph.custom.psm1|MSGraph.Autorest\custom\Get-AzADAppCredential.ps1|MSGraph.Autorest\custom\Get-AzADAppFederatedIdentityCredential.ps1|MSGraph.Autorest\custom\Get-AzADApplication.ps1|MSGraph.Autorest\custom\Get-AzADAppPermission.ps1|MSGraph.Autorest\custom\Get-AzADGroup.ps1|MSGraph.Autorest\custom\Get-AzADGroupMember.ps1|MSGraph.Autorest\custom\Get-AzADServicePrincipal.ps1|MSGraph.Autorest\custom\Get-AzADSpCredential.ps1|MSGraph.Autorest\custom\Get-AzADUser.ps1|MSGraph.Autorest\custom\Module.cs|MSGraph.Autorest\custom\New-AzADAppCredential.ps1|MSGraph.Autorest\custom\New-AzADAppFederatedIdentityCredential.ps1|MSGraph.Autorest\custom\New-AzADApplication.ps1|MSGraph.Autorest\custom\New-AzADGroup.ps1|MSGraph.Autorest\custom\New-AzADServicePrincipal.ps1|MSGraph.Autorest\custom\New-AzADSpCredential.ps1|MSGraph.Autorest\custom\New-AzADUser.ps1|MSGraph.Autorest\custom\Remove-AzADAppCredential.ps1|MSGraph.Autorest\custom\Remove-AzADApplication.ps1|MSGraph.Autorest\custom\Remove-AzADAppPermission.ps1|MSGraph.Autorest\custom\Remove-AzADGroup.ps1|MSGraph.Autorest\custom\Remove-AzADGroupMember.ps1|MSGraph.Autorest\custom\Remove-AzADServicePrincipal.ps1|MSGraph.Autorest\custom\Remove-AzADSpCredential.ps1|MSGraph.Autorest\custom\Remove-AzADUser.ps1|MSGraph.Autorest\custom\Update-AzADApplication.ps1|MSGraph.Autorest\custom\Update-AzADServicePrincipal.ps1|MSGraph.Autorest\custom\Update-AzADUser.ps1|MSGraph.Autorest\custom\model\MicrosoftGraphApplication.cs|MSGraph.Autorest\custom\model\MicrosoftGraphApplicationApiPermission.cs|MSGraph.Autorest\custom\model\MicrosoftGraphGroup.cs|MSGraph.Autorest\custom\model\MicrosoftGraphServicePrincipal.cs|MSGraph.Autorest\custom\model\MicrosoftGraphUser.cs|MSGraph.Autorest\exports\ProxyCmdletDefinitions.ps1|MSGraph.Autorest\internal\Az.MSGraph.internal.psm1|MSGraph.Autorest\internal\ProxyCmdletDefinitions.ps1|MSGraph.Autorest\utils\Unprotect-SecureString.ps1</S>
+          <S N="Cmdlets">Get-AzProviderOperation Remove-AzRoleAssignment Get-AzRoleAssignment New-AzRoleAssignment Set-AzRoleAssignment Get-AzRoleDefinition New-AzRoleDefinition Set-AzRoleDefinition Remove-AzRoleDefinition Remove-AzResourceGroup Get-AzProviderFeature Register-AzProviderFeature Unregister-AzProviderFeature Get-AzProviderPreviewFeature Register-AzProviderPreviewFeature Unregister-AzProviderPreviewFeature Get-AzLocation Export-AzResourceGroup Get-AzResourceProvider Register-AzResourceProvider Unregister-AzResourceProvider Get-AzResourceGroupDeployment New-AzResourceGroupDeployment Remove-AzResourceGroupDeployment Stop-AzResourceGroupDeployment Test-AzResourceGroupDeployment Set-AzResourceGroup New-AzResourceGroup Get-AzResourceGroup Save-AzResourceGroupDeploymentTemplate Get-AzResourceGroupDeploymentOperation Get-AzResourceLock Invoke-AzResourceAction Move-AzResource New-AzResourceLock Get-AzPolicyAssignment Get-AzPolicyDefinition Get-AzPolicySetDefinition Get-AzPolicyExemption New-AzPolicyAssignment New-AzPolicyDefinition New-AzPolicySetDefinition New-AzPolicyExemption Remove-AzPolicyAssignment Remove-AzPolicyDefinition Remove-AzPolicySetDefinition Remove-AzPolicyExemption Set-AzPolicyAssignment Set-AzPolicyDefinition Set-AzPolicySetDefinition Set-AzPolicyExemption Remove-AzResource Remove-AzResourceLock Set-AzResource New-AzResource Set-AzResourceLock Get-AzResource Get-AzManagedApplicationDefinition New-AzManagedApplicationDefinition Set-AzManagedApplicationDefinition Remove-AzManagedApplicationDefinition Get-AzManagedApplication New-AzManagedApplication Set-AzManagedApplication Remove-AzManagedApplication Get-AzManagementGroup New-AzManagementGroup Update-AzManagementGroup Remove-AzManagementGroup New-AzManagementGroupSubscription Remove-AzManagementGroupSubscription New-AzDeployment Get-AzDeployment Test-AzDeployment Remove-AzDeployment Stop-AzDeployment Save-AzDeploymentTemplate Get-AzDeploymentOperation Get-AzManagementGroupDeployment Test-AzManagementGroupDeployment New-AzManagementGroupDeployment Get-AzManagementGroupDeploymentOperation Save-AzManagementGroupDeploymentTemplate Stop-AzManagementGroupDeployment Remove-AzManagementGroupDeployment Get-AzTenantDeployment Test-AzTenantDeployment New-AzTenantDeployment Get-AzTenantDeploymentOperation Save-AzTenantDeploymentTemplate Stop-AzTenantDeployment Remove-AzTenantDeployment Get-AzPolicyAlias Remove-AzTag Get-AzTag New-AzTag Get-AzDenyAssignment Update-AzTag Get-AzDeploymentScript Get-AzDeploymentScriptLog Save-AzDeploymentScriptLog Remove-AzDeploymentScript Get-AzDeploymentWhatIfResult Get-AzResourceGroupDeploymentWhatIfResult Get-AzManagementGroupDeploymentWhatIfResult Get-AzTenantDeploymentWhatIfResult Get-AzTemplateSpec New-AzTemplateSpec Set-AzTemplateSpec Export-AzTemplateSpec Remove-AzTemplateSpec Publish-AzBicepModule Get-AzResourceManagementPrivateLink Remove-AzResourceManagementPrivateLink New-AzResourceManagementPrivateLink New-AzPrivateLinkAssociation Get-AzPrivateLinkAssociation Remove-AzPrivateLinkAssociation Get-AzManagementGroupEntity Get-AzManagementGroupNameAvailability Get-AzTenantBackfillStatus Start-AzTenantBackfill Get-AzManagementGroupSubscription New-AzManagementGroupHierarchySetting Update-AzManagementGroupHierarchySetting Get-AzManagementGroupHierarchySetting Remove-AzManagementGroupHierarchySetting</S>
+          <S N="Functions">Add-AzADAppPermission Add-AzADGroupMember Get-AzADAppCredential Get-AzADApplication Get-AzADAppPermission Get-AzADGroup Get-AzADGroupMember Get-AzADServicePrincipal Get-AzADSpCredential Get-AzADUser New-AzADAppCredential New-AzADApplication New-AzADGroup New-AzADServicePrincipal New-AzADSpCredential New-AzADUser Remove-AzADAppCredential Remove-AzADApplication Remove-AzADAppPermission Remove-AzADGroup Remove-AzADGroupMember Remove-AzADServicePrincipal Remove-AzADSpCredential Remove-AzADUser Update-AzADApplication Update-AzADServicePrincipal Update-AzADUser Get-AzRoleAssignmentSchedule Get-AzRoleAssignmentScheduleInstance Get-AzRoleAssignmentScheduleRequest Get-AzRoleEligibilitySchedule Get-AzRoleEligibilityScheduleInstance Get-AzRoleEligibilityScheduleRequest Get-AzRoleEligibleChildResource Get-AzRoleManagementPolicy Get-AzRoleManagementPolicyAssignment New-AzRoleAssignmentScheduleRequest New-AzRoleEligibilityScheduleRequest New-AzRoleManagementPolicyAssignment Remove-AzRoleManagementPolicy Remove-AzRoleManagementPolicyAssignment Stop-AzRoleAssignmentScheduleRequest Stop-AzRoleEligibilityScheduleRequest Update-AzRoleManagementPolicy Update-AzADGroup Get-AzADAppFederatedIdentityCredential New-AzADAppFederatedIdentityCredential Remove-AzADAppFederatedIdentityCredential Update-AzADAppFederatedIdentityCredential</S>
+          <S N="GUID">48bb344d-4c24-441e-8ea0-589947784700</S>
+          <S N="PowerShellVersion">5.1</S>
+          <S N="DotNetFrameworkVersion">4.7.2</S>
+          <S N="CompanyName">Microsoft Corporation</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">D:\Users\Day\Documents\PowerShell\Modules\Az.Resources\6.0.0</S>
+    </MS>
+  </Obj>
+</Objs>
