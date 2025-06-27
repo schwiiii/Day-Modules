@@ -11,6 +11,26 @@ $global:RepoPaths = @{
 # Ensure UTF-8 output for proper emoji display
 [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
+<#
+.SYNOPSIS
+Performs a Git merge from a source branch into one or more target branches within a specified repository path.
+
+.DESCRIPTION
+Checks out the source branch, pulls the latest changes, and then iteratively checks out each target branch to merge the source into it.
+Conflicts are handled by stopping the process and reporting which merge failed.
+
+.PARAMETER RepoPath
+The file system path to the Git repository.
+
+.PARAMETER SourceBranch
+The name of the branch to merge from.
+
+.PARAMETER TargetBranches
+An array of branch names to merge into.
+
+.EXAMPLE
+Invoke-Merge -RepoPath "A:\Mapped\talos" -SourceBranch "Talos-UAT" -TargetBranches @("Talos-Hotfix", "Talos-Live")
+#>
 function Invoke-Merge {
     param (
         [string]$RepoPath,
@@ -23,10 +43,12 @@ function Invoke-Merge {
 
     Write-Host "🔄 Switching to source branch: $SourceBranch" -ForegroundColor Cyan
     git checkout $SourceBranch
+    Write-Host "🔄 Pulling latest" -ForegroundColor Cyan
     git pull
 
     Write-Host "🔄 Switching to target branch: $TargetBranch" -ForegroundColor Cyan
     git checkout $TargetBranch
+    Write-Host "🔄 Pulling latest" -ForegroundColor Cyan
     git pull
 
     Write-Host "🔄 Merging: $SourceBranch -> $TargetBranch..." -ForegroundColor Cyan
@@ -57,6 +79,26 @@ function Invoke-Merge {
     }
 }
 
+<#
+.SYNOPSIS
+Executes a predefined merge strategy across multiple repositories.
+
+.DESCRIPTION
+Loops through a set of repositories and performs merges based on the source and target branch suffixes (e.g., UAT → Hotfix, Live).
+Special-case logic is included for the Talos repository to also merge into Talos-JSP.
+
+.PARAMETER SourceSuffix
+The suffix of the source branch (e.g., "UAT" or "Hotfix").
+
+.PARAMETER TargetSuffixes
+An array of suffixes representing the target branches.
+
+.PARAMETER SelectedRepos
+A hashtable mapping repository names (e.g., "Talos") to their local file system paths.
+
+.EXAMPLE
+Invoke-MergePlan -SourceSuffix "UAT" -TargetSuffixes @("Hotfix", "Live") -SelectedRepos @{ "Talos" = "A:\Mapped\talos" }
+#>
 function Invoke-MergePlan {
     param (
         [string]$Type,
@@ -71,6 +113,9 @@ function Invoke-MergePlan {
                     Write-Host "⚠️ Unknown repository: $repo" -ForegroundColor Yellow
                     continue
                 }
+                if($repo -eq "Talos") {
+                    Invoke-Merge -RepoPath $path -SourceBranch "$repo-UAT" -TargetBranch "$repo-JSP"
+                }
                 Invoke-Merge -RepoPath $path -SourceBranch "$repo-UAT" -TargetBranch "$repo-Hotfix"
                 Invoke-Merge -RepoPath $path -SourceBranch "$repo-UAT" -TargetBranch "$repo-Live"
             }
@@ -82,6 +127,9 @@ function Invoke-MergePlan {
                     Write-Host "⚠️ Unknown repository: $repo" -ForegroundColor Yellow
                     continue
                 }
+                if($repo -eq "Talos") {
+                    Invoke-Merge -RepoPath $path -SourceBranch "$repo-Hotfix" -TargetBranch "$repo-JSP"
+                }
                 Invoke-Merge -RepoPath $path -SourceBranch "$repo-Hotfix" -TargetBranch "$repo-UAT"
                 Invoke-Merge -RepoPath $path -SourceBranch "$repo-Hotfix" -TargetBranch "$repo-Live"
             }
@@ -91,6 +139,7 @@ function Invoke-MergePlan {
             if ($path) {
                 Invoke-Merge -RepoPath $path -SourceBranch "Talos-JSP" -TargetBranch "Talos-UAT"
                 Invoke-Merge -RepoPath $path -SourceBranch "Talos-JSP" -TargetBranch "Talos-Hotfix"
+                Invoke-Merge -RepoPath $path -SourceBranch "Talos-JSP" -TargetBranch "Talos-Live"
             } else {
                 Write-Host "⚠️ 'Talos' repository path not found." -ForegroundColor Yellow
             }
@@ -101,6 +150,41 @@ function Invoke-MergePlan {
     }
 }
 
+<#
+.SYNOPSIS
+Main entry point for the Talos360 CLI module to perform Git merges across multiple repositories.
+
+.DESCRIPTION
+Accepts parameters to specify which type of merge to run (e.g., -MergeUAT, -MergeHotfix, -MergeJsp) and which repositories
+to apply the merge to (e.g., -Talos, -TalosATS, -Onboarding, -CareersSites). Calls into merge planning and execution logic accordingly.
+
+.PARAMETER MergeUAT
+Merges UAT branches into Hotfix and Live (and JSP for Talos only).
+
+.PARAMETER MergeHotfix
+Merges Hotfix branches into UAT, Live (and JSP for Talos only).
+
+.PARAMETER MergeJsp
+(Deprecated/simplified use) Merges Talos-JSP with appropriate source.
+
+.PARAMETER Talos
+Indicates the merge should apply to the Talos repository.
+
+.PARAMETER TalosATS
+Indicates the merge should apply to the TalosATS repository.
+
+.PARAMETER Onboarding
+Indicates the merge should apply to the Onboarding repository.
+
+.PARAMETER CareersSites
+Indicates the merge should apply to the CareersSites repository.
+
+.EXAMPLE
+Talos360 -MergeUAT -Talos -TalosATS
+
+.EXAMPLE
+Talos360 -MergeHotfix -Onboarding
+#>
 function Talos360 {
     param (
         [switch]$MergeUAT,
