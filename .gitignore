@@ -1,0 +1,9 @@
+# Ignore everything
+*
+
+# But not these files
+!.gitignore
+!Talos360Module/
+!Talos360Module/**
+!DayModule/
+!DayModule/**
