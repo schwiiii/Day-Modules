@@ -11,11 +11,70 @@ $global:RepoPaths = @{
 # Ensure UTF-8 output for proper emoji display
 [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
 
+$map = @{
+    "Live"   = @{ Id="8a40e48a-aeec-4fa6-9da7-1d1561eaeca1"; Tenant="c575db86-1704-4250-9f5c-5d9f4927081e" }
+    "UAT"    = @{ Id="c6ccf98f-499b-45c1-9611-f0d225a5a37a"; Tenant="c575db86-1704-4250-9f5c-5d9f4927081e" }
+    "Engage" = @{ Id="6554a5aa-e7ee-4c58-b248-d419af390c32"; Tenant="c575db86-1704-4250-9f5c-5d9f4927081e" }
+}
+
+
 function Ensure-AzLogin {
     param([string]$TenantId)
 
-    Write-Host "To be implemented"
+    $context = Get-AzContext -ErrorAction SilentlyContinue
+    if ($null -eq $context) {
+        Write-Host "No Az login found. Logging in..."
+        if ($TenantId) {
+            Connect-AzAccount -Tenant $TenantId -UseDeviceAuthentication
+        } else {
+            Connect-AzAccount -UseDeviceAuthentication
+        }
+    } else {
+        Write-Host "Using cached Az session for tenant $($context.Tenant.Id)"
+    }
 }
+
+function Ensure-AzCliLogin {
+    # Check if Azure CLI is logged in
+    $subscriptions = az account list --query "[].id" -o tsv 2>$null
+    if (-not $subscriptions) {
+        Write-Host "Logging in to Azure CLI..."
+        az login
+    } else {
+        Write-Host "Using cached Azure CLI session"
+    }
+}
+
+<#
+.SYNOPSIS
+Logs into Azure using both the Az PowerShell module and Azure CLI.
+
+.DESCRIPTION
+Logs into Azure using the Az PowerShell module and Azure CLI. If a TenantId is provided, it will be used for the Az PowerShell login.
+
+.PARAMETER TenantId
+The Azure Tenant ID to use for the Az PowerShell login.
+
+.EXAMPLE
+Ensure-AzureLogin -TenantId "12345-12345-12345-12345-12345"
+#>
+function Ensure-AzureLogin {
+    param(
+        [string]$TenantId,
+        [string]$SubscriptionId
+    )
+
+    Write-Host "Logging in to tenant $TenantId..."
+    Connect-AzAccount -Tenant $TenantId -UseDeviceAuthentication
+
+    if ($SubscriptionId) {
+        Write-Host "Setting active subscription to: $SubscriptionId"
+        Set-AzContext -Subscription $SubscriptionId | Out-Null
+        az account set --subscription $SubscriptionId | Out-Null
+    }
+}
+
+
 
 <#
 .SYNOPSIS
@@ -158,11 +217,18 @@ function Invoke-MergePlan {
 
 <#
 .SYNOPSIS
-Main entry point for the Talos360 CLI module to perform Git merges across multiple repositories.
+Main entry point for the Talos360 CLI module. 
 
 .DESCRIPTION
+Looks for parameters to log into Azure or to perform merges.
 Accepts parameters to specify which type of merge to run (e.g., -MergeUAT, -MergeHotfix, -MergeJsp) and which repositories
 to apply the merge to (e.g., -Talos, -TalosATS, -Onboarding, -CareersSites). Calls into merge planning and execution logic accordingly.
+
+.PARAMETER Login
+If specified, logs into Azure using the Az PowerShell module and Azure CLI for the selected subscription.
+
+.PARAMETER Subscription
+The target subscription for Azure login. Valid values are "Live", "UAT", and "Engage". Defaults to "Live".
 
 .PARAMETER MergeUAT
 Merges UAT branches into Hotfix and Live (and JSP for Talos only).
@@ -194,6 +260,8 @@ Talos360 -MergeHotfix -Onboarding
 function Talos360 {
     param (
         [switch]$Login,
+        [ValidateSet("Live","UAT","Engage")]
+        [string]$Subscription = "Live",
         [switch]$MergeUAT,
         [switch]$MergeHotfix,
         [switch]$MergeJSP,
@@ -204,9 +272,11 @@ function Talos360 {
     )
 
     if ($Login) {
-        Ensure-AzureLogin -TenantId ""
+        $sub = $map[$Subscription] 
+        Ensure-AzureLogin -TenantId $sub.Tenant -SubscriptionId $sub.Id
         return
     }
+
 
     if ($MergeJSP) {
         Invoke-MergePlan -Type "JSP"
