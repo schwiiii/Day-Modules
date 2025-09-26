@@ -74,8 +74,6 @@ function Ensure-AzureLogin {
     }
 }
 
-
-
 <#
 .SYNOPSIS
 Performs a Git merge from a source branch into one or more target branches within a specified repository path.
@@ -117,7 +115,7 @@ function Invoke-Merge {
     git pull
 
     Write-Host "🔄 Merging: $SourceBranch -> $TargetBranch..." -ForegroundColor Cyan
-    $mergeOutput = git merge $SourceBranch 2>&1
+    $mergeOutput = git merge --no-ff $SourceBranch 2>&1
 
     if ($LASTEXITCODE -ne 0) {
         if ($mergeOutput -match "CONFLICT") {
